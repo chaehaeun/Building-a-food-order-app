@@ -35,7 +35,7 @@
 - [x] [151. 장바구니 컨텍스트 추가](https://github.com/chaehaeun/Building-a-food-order-app/issues/12)
 - [x] 152. 컨텍스트 사용
 - [x] [153. 장바구니 리듀서 추가](https://github.com/chaehaeun/Building-a-food-order-app/issues/14)
-- [ ] 154. Refs 및 Forward Refs 작업하기
+- [x] 154. Refs 및 Forward Refs 작업하기
 - [ ] 155. 장바구니 항목 출력하기
 
 <br/>
