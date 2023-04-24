@@ -33,6 +33,32 @@ const cartReducer = (state, action) => {
 
       return { items: updatedItems, totalAmount: updatedTotalAmount }; //새로운 항목을 추가한 배열과 총합을 리턴
     }
+    case "REMOVE": {
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.id
+      ); //배열에서 항목의 인덱스를 찾아줌
+
+      const existingCartItem = state.items[existingCartItemIndex];
+
+      const updatedTotalAmount = state.totalAmount - existingCartItem.price;
+
+      let updatedItems;
+
+      if (existingCartItem.amount === 1) {
+        updatedItems = state.items.filter(
+          (item) => item.id !== action.id // id가 일치하지 않는 항목만 필터링해서 새로운 배열을 만듦
+        );
+      } else {
+        const updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount - 1, // 기존의 항목의 수량에 새로운 항목의 수량을 빼줌
+        };
+
+        updatedItems = [...state.items];
+        updatedItems[existingCartItemIndex] = updatedItem;
+      }
+      return { items: updatedItems, totalAmount: updatedTotalAmount };
+    }
 
     default:
       return defaulteCartState;

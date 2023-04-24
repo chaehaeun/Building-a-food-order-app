@@ -10,9 +10,13 @@ const Cart = ({ onClose }) => {
   const totalAmount = `$${cartCtx.totalAmount.toFixed(2)}`;
   const hasItems = cartCtx.items.length > 0;
 
-  const cartItemRemoveHandler = (id) => {};
+  const cartItemRemoveHandler = (id) => {
+    cartCtx.removeItem(id); //id를 넘겨서 cartCtx.removeItem()을 실행
+  };
 
-  const cartItemAddHandler = (item) => {};
+  const cartItemAddHandler = (item) => {
+    cartCtx.addItem({ ...item, amount: 1 }); //amount: 1 은 기본값
+  };
 
   const cartitems = (
     <ul className={classes["cart-items"]}>
