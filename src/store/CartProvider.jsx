@@ -9,10 +9,29 @@ const defaulteCartState = {
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD": {
-      const updatedItems = state.items.concat(action.item);
       const updatedTotalAmount =
-        state.totalAmount + action.item.price * action.item.amount;
-      return { items: updatedItems, totalAmount: updatedTotalAmount };
+        state.totalAmount + action.item.price * action.item.amount; // 총합을 계산
+
+      const existingCartItemIndex = state.items.findIndex(
+        (item) => item.id === action.item.id
+      ); //배열에서 항목의 인덱스를 찾아줌
+
+      const existingCartItem = state.items[existingCartItemIndex]; //찾은 인덱스의 항목을 변수에 저장
+
+      let updatedItems;
+
+      if (existingCartItem) {
+        const updatedItem = {
+          ...existingCartItem,
+          amount: existingCartItem.amount + action.item.amount, // 기존의 항목의 수량에 새로운 항목의 수량을 더해줌
+        };
+        updatedItems = [...state.items]; // 기존의 항목을 복사해서 저장
+        updatedItems[existingCartItemIndex] = updatedItem; // 기존의 항목을 새로운 항목으로 교체
+      } else {
+        updatedItems = state.items.concat(action.item); //
+      }
+
+      return { items: updatedItems, totalAmount: updatedTotalAmount }; //새로운 항목을 추가한 배열과 총합을 리턴
     }
 
     default:

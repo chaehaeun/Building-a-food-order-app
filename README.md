@@ -40,7 +40,7 @@
 
 <br/>
 
-- [ ] 156. 더 복잡한 리듀서 로직 작업하기
+- [x] [156. 더 복잡한 리듀서 로직 작업하기](https://github.com/chaehaeun/Building-a-food-order-app/issues/17)
 - [ ] 157. 아이템을 이동식으로 만들기
 - [ ] 158. useEffect 훅 사용하기
 
