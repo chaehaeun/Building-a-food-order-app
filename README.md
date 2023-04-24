@@ -24,7 +24,7 @@
        <br/>
 - [x] [146. 양식 추가하기](https://github.com/chaehaeun/Building-a-food-order-app/issues/7)
 - [x] 147. 양식 입력 IDs 수정하기
-- [ ] 148. '장바구니' 컴포넌트 작업하기
+- [x] 148. '장바구니' 컴포넌트 작업하기
 - [ ] 149. 리액트 Portal을 통해 모달 추가하기
 - [ ] 150. 카트 및 모달 State 관리
        <br/>
